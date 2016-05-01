@@ -21,7 +21,9 @@ exp = (
 )
 
 a = regex.compile(exp)
-text = open("../hw2/test_dollar_phone_corpus.txt").read()
+text = open("/home/george/repos/nlp/hw2/test_dollar_phone_corpus.txt").read()
 b = regex.findall(text, a)
 
 for i in b: print i.text
+
+# diff <(cat hw2_dollar_output.txt) <(python demo.py)
