@@ -11,12 +11,12 @@ testGraphs = [
 [
 	'(a|b|c)+',
 	'    z d g abc', 
-	[Found('abc', 10, 13), Found('bc', 11, 13), Found('c', 12, 13)] 
+	[Found('abc', 10, 13)]
 ],
 [
 	'(a|b|c)?zz(x|y|z)*',
 	'zz zzyxyzy zxyxy azzyx abzs czz', 
-	[Found('zz', 0, 2), Found('zzyxyzy', 3, 10), Found('azzyx', 17, 22), Found('zzyx', 18, 22), Found('czz', 28, 31), Found('zz', 29, 31)] 
+	[Found('zz', 0, 2), Found('zzyxyzy', 3, 10), Found('azzyx', 17, 22),  Found('czz', 28, 31)] 
 ],
 [
 	'AB(C|D)?E*',

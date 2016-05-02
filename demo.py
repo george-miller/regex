@@ -21,7 +21,7 @@ exp = (
 )
 
 a = regex.compile(exp)
-text = open("/home/george/repos/nlp/hw2/test_dollar_phone_corpus.txt").read()
+text = open("/Users/gmmotto/repos/nlp/hw2/test_dollar_phone_corpus.txt").read()
 b = regex.findall(text, a)
 
 for i in b: print i.text

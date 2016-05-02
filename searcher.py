@@ -32,10 +32,14 @@ def find(text, g):
 
 def findAll(text, g):
 	found = []
-	for i in range(len(text)):
+	i = 0
+	while i  < len(text):
 		result = find(text[i:], g)
 		if result != None:
 			result.start += i
 			result.end += i
 			found.append(result)
+			i = result.end
+		else:
+			i += 1
 	return found
