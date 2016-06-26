@@ -23,8 +23,6 @@ Node * allocateNode(int matchLength, int edges){
   return n;
 }
 
-
-
 void deallocateNodeList(NodeList *nl){
   free(nl->nodes);
   free(nl);

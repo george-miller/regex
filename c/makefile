@@ -1,6 +1,6 @@
 objects = allocator.c
 testObjects = tests/testAllocator.c
-make:
+make: $(objects)
 	gcc -std=c99 -Wall -o regex regex.c $(objects)
-t:
-	gcc -std=c99 -Wall -o test tests/test.c $(objects) $(testObjects)
+t: $(testObjects) $(objects)
+	gcc -std=c99 -Wall -o test tests/test.c $(testObjects) $(objects)

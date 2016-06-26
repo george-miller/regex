@@ -30,4 +30,6 @@ typedef struct Found {
   int end;
 } Found;
 
+void allocateNodeList
+
 #endif

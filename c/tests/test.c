@@ -17,6 +17,10 @@ Results testAll(int (*tests[])(), int length){
   return r;
 }
 
+void printResults(Results r){
+  printf("%s had %d successes and %d fails\n", r.moduleName, r.success, r.fail);
+  free(r.moduleName);
+}
 
 Results (*mainTests[])() = {
   &testAllocator,
@@ -24,14 +28,8 @@ Results (*mainTests[])() = {
 
 int main(int argc, char **argv){
   for (int i = 0; i < 1; i++){
-    Results r = mainTests[i]();
-    printf("%s had %d successes and %d fails\n", r.moduleName, r.success, r.fail);
+    printResults(mainTests[i]());  
   }
-
-
   return 1;
 }
 
-void printResults(Results r){
-
-}
