@@ -11,7 +11,7 @@ instance Eq Node where
   n1 == n2 = matches n1 == matches n2
 
 instance Show Node where
-  show = nodeString 1
+  show = nodeString 0
 
 instance Show Graph where
   show g = graphString g
@@ -20,11 +20,15 @@ simpleNodeString :: Node -> String
 simpleNodeString n = "Node matches " ++ [matches n]
 nodeString :: Int -> Node -> String
 nodeString numIndent n
-  | edges n == [] = simpleNodeString n
-  | otherwise = intercalate (concat $ "\n":(replicate numIndent "\t")) $ simpleNodeString n:map (nodeString (numIndent+1)) (edges n)
+  | edges n == [] = thisNodeString
+  | otherwise = thisNodeString ++ nextNodeStrings 
+  where
+      createIndent numIndent = concat $ replicate numIndent "\t"
+      thisNodeString = createIndent numIndent ++ simpleNodeString n ++ "\n"
+      nextNodeStrings = concat $ map (nodeString $ numIndent+1) (edges n)
 
 graphString :: Graph -> String
-graphString g = intercalate "\n" $ map (nodeString 1) (inputNodes g)
+graphString g = intercalate "\n" $ map (nodeString 0) (inputNodes g)
 
 a, b, c :: Node
 f = Node 'f' []
